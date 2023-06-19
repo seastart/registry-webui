@@ -1,0 +1,14 @@
+app:
+  # if env not prod, will show more information when running
+  env: prod
+  # title for page
+  title: "ather shu's docker hub"
+  # refresh all repoes interval
+  fresh_interval: 10m
+registry:
+  # registry v2 api prefix, the real api will be `$url/v2/_catalog`
+  # see https://docs.docker.com/registry/spec/api/#overview
+  url: "https://yourdocker.com"
+  # registry api authentication
+  username: "your username"
+  password: "your password"

@@ -1,0 +1,20 @@
+@import "bootstrap/scss/mixins";
+
+.layers {
+    font-size: 0.8rem;
+    line-height: 2;
+}
+
+.tag {
+    border: 1px solid var(--bs-secondary-border-subtle);
+    border-radius: 5px;
+    background-color: var(--bs-secondary-bg-subtle);
+
+    @include color-scheme(dark) {
+        // Insert dark mode styles here
+    }
+}
+
+.image-tr {
+    cursor: pointer;
+}
