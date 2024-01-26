@@ -227,12 +227,15 @@ func getRepoDetail(name string) (*Repo, error) {
 			// in Dockerfile: LABEL description="xxx"
 			// image changelog
 			// in Dockerfile: LABEL changelog="xxx"
-			config := rspv["config"].(map[string]any)["Labels"].(map[string]any)
-			if config["description"] != nil {
-				repo.Desc = config["description"].(string)
-			}
-			if config["changelog"] != nil {
-				tag.ChangeLog = config["changelog"].(string)
+			// image may have no labels
+			if rspv["config"].(map[string]any)["Labels"] != nil {
+				config := rspv["config"].(map[string]any)["Labels"].(map[string]any)
+				if config["description"] != nil {
+					repo.Desc = config["description"].(string)
+				}
+				if config["changelog"] != nil {
+					tag.ChangeLog = config["changelog"].(string)
+				}
 			}
 		}
 	}

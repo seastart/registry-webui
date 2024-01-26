@@ -21,8 +21,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV WORKDIR /var/www/registry-webui
 
 # add executable by target architecture
-ADD main_linux_${TARGETARCH} $WORKDIR/main
-RUN chmod +x $WORKDIR/main
+ADD --chmod=755 main_linux_${TARGETARCH} $WORKDIR/main
 RUN mkdir ${WORKDIR}/config
 
 ###############################################################################
